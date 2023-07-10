@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { v4: uuidv4 } = require("uuid");
 
 let transactionArray = require("../models/transactionModel");
 
@@ -10,7 +11,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  const match = transactionArray.find((item) => item.id === Number(id));
+  const match = transactionArray.find((item) => item.id === id);
 
   if (!match) {
     res.status(404).json({
@@ -36,7 +37,7 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
 
-  let foundIndex = transactionArray.findIndex((item) => item.id === Number(id));
+  let foundIndex = transactionArray.findIndex((item) => item.id === id);
 
   if (foundIndex === -1) {
     res.status(404).json({
@@ -52,7 +53,7 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   let id = req.params.id;
 
-  let foundIndex = transactionArray.findIndex((item) => item.id === Number(id));
+  let foundIndex = transactionArray.findIndex((item) => item.id === id);
 
   if (foundIndex === -1) {
     res

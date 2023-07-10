@@ -1,28 +1,28 @@
-// const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 module.exports = [
   {
-    id: 1,
-    itemName: "Cat Food",
-    amount: 500,
-    date: "5/6/23",
+    id: uuidv4(),
+    itemName: "Income",
+    amount: 1,
+    from: "Google",
+    date: "2023-08-12",
+    category: "Income",
   },
   {
-    id: 2,
+    id: uuidv4(),
     itemName: "Dog Food",
-    amount: 45,
-    date: "5/6/23",
+    amount: -50,
+    from: "grocery",
+    date: "2023-08-12",
+    category: "Pets",
   },
   {
-    id: 3,
-    itemName: "fish Food",
-    amount: 3,
-    date: "5/6/23",
-  },
-  {
-    id: 4,
-    itemName: "cow Food",
-    amount: 600,
-    date: "5/6/23",
+    id: uuidv4(),
+    itemName: "Fish Food",
+    amount: -5,
+    from: "grocery",
+    date: "2023-08-12",
+    category: "Pets",
   },
 ];
